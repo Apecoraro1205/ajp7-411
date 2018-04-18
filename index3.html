@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Alex Pecoraro">
+    <title>Checked Check</title>
+    <link href="../css/IT411b.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!--Note these styles make the errors really stand out -->
+    <style>
+        body {
+            color: deepskyblue;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        label.error {
+            display: block;
+            color: limegreen;
+            font-size: 0.5em;
+            font-weight: italic;
+            text-align: center;
+            margin-left: 250px;
+        }
+        
+        input {
+            border: 1px solid black;
+        }
+        
+        input.error {
+            background: green;
+            border: 1px solid limegreen;
+        }
+        
+        p {
+            color: black;
+        }
+        
+        #signup {
+            background-color: aliceblue;
+            margin: 50px;
+            padding: 20px;
+            border: 10px solid black;
+        }
+        
+        #submitme {
+            background-color: black;
+            font-size: 1em;
+            color: deepskyblue;
+            border: none;
+            border-radius: 90%;
+            margin: 5px;
+            padding: 7.5px;
+        }
+        
+        #result {
+            text-align: left;
+            font-weight: normal;
+        }
+
+    </style>
+    <script>
+        "use strict";
+        // this is the shortcut notation for document ready	
+
+        $(function() {
+            $("#datepicker").datepicker(); //adds datepicker
+            $("#spinner").spinner(); //adds spinner
+            $('#signup').validate(); //validation
+
+            $('#signup').submit(function(e) {
+
+                e.preventDefault(); //Prevents from submitting (which is the default action)
+
+                // if the form is not valid don't do anything else but return
+                if (!$("#signup").valid()) return;
+            });
+
+
+
+            var myForm = document.getElementById("signup"); //displays input
+            myForm.onsubmit = function() {
+                var n1 = document.getElementById("name").value;
+                var n2 = document.getElementById("datepicker").value;
+                var n3 = document.getElementById("spinner").value;
+                var n4 = document.getElementById("web").value;
+                var n5 = document.getElementById("email").value;
+                document.getElementById("result").innerHTML = "Your name: " + n1 + "<br />" + "Your birth date: " + n2 + "<br />" + "Your family member amount: " + n3 + "<br />" + "Your favorite website: " + n4 + "<br />" + "Your work email: " + n5; //the actual display html
+                return false;
+            }
+
+
+        }); // end ready
+
+    </script>
+</head>
+<img src="../images/sftwear.png">
+
+<body>
+    <p>Please fill out all your information so we can make your favorite t-shirt!</p>
+    <form id="signup" action="sampleactionOne.html">
+
+        <label for="name" class="label">What's your first and last name?</label>
+        <input type="text" name="name" id="name" class="required">&nbsp;
+        <br>
+        <label for="thedate" class="label">When were you born?</label>
+        <input type="text" id="datepicker" required="datepicker">&nbsp;
+        <br>
+        <label for="spinner">How many family members do you have?</label>
+        <input type="text" id="spinner" name="spinner" class="required spinner">&nbsp;
+        <br>
+        <label for="theurl" class="label">Whats your favorite website url?</label>
+        <input type="text" name="theurl" id="web" class="required url">&nbsp;
+        <br>
+        <label for="theemail" class="label">Enter your work email</label>
+        <input type="text" name="email" id="email" class="required email">&nbsp;
+
+        <br>
+        <input type='submit' value='Submit' name="submit" id='submitme'>
+
+    </form>
+    <p>Your poster information</p>
+    <p id="result"></p>
+</body>
+
+</html>

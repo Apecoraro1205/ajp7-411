@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Alex Pecoraro">
+    <title>Checked Check</title>
+    <link href="../css/IT411b.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!--Note these styles make the errors really stand out -->
+    <style>
+        body {
+            color: deepskyblue;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        label.error {
+            display: block;
+            color: limegreen;
+            font-size: 0.5em;
+            font-weight: italic;
+            text-align: center;
+            margin-left: 250px;
+        }
+        
+        input {
+            border: 1px solid black;
+        }
+        
+        input.error {
+            background: green;
+            border: 1px solid limegreen;
+        }
+        
+        p {
+            color: black;
+        }
+        
+        #signup {
+            background-color: aliceblue;
+            margin: 50px;
+            padding: 20px;
+            border: 10px solid black;
+        }
+        
+        #submitme {
+            background-color: black;
+            font-size: 1em;
+            color: deepskyblue;
+            border: none;
+            border-radius: 90%;
+            margin: 5px;
+            padding: 7.5px;
+        }
+        
+        #result {
+            text-align: left;
+            font-weight: normal;
+        }
+
+    </style>
+
+    <script>
+        "use strict";
+        // this is the shortcut notation for document ready	
+        $(function() {
+
+            $('#signup').validate() //validation
+
+            $('#signup').submit(function(e) {
+                event.preventDefault(); //Prevents from submitting (which is the default action)
+
+
+                // if the form is not valid don't do anything else but return
+                if (!$('signup').valid()) return;
+
+                // if you get here the form is valid so do wother stuff
+
+            });
+
+
+
+
+        }); // end ready
+
+    </script>
+</head>
+<img src="../images/sftwear.png">
+
+<body>
+    <p>Please fill out all your information so we can make your favorite t-shirt!</p>
+    <form id="signup" action="sampleactionOne.html">
+
+        <label for="name" class="label">What's your first and last name?</label>
+        <input type="text" name="name" id="name" class="required">&nbsp;
+        <br>
+        <label for="thedate" class="label">When were you born?</label>
+        <input type="text" name="thedate" id="born" class="required date">&nbsp;
+        <br>
+        <label for="theage" class="label">How many family members do you have?</label>
+        <input type="text" name="members" id="fam" class="required digits">&nbsp;
+        <br>
+        <label for="theurl" class="label">Whats your favorite website url?</label>
+        <input type="text" name="theurl" id="web" class="required url">&nbsp;
+        <br>
+        <label for="theemail" class="label">Enter your work email</label>
+        <input type="text" name="email" id="email" class="required email">&nbsp;
+
+        <br>
+        <input type='submit' value='Submit' name="submit" id='submitme'>
+
+    </form>
+    <p>Your poster information</p>
+    <p id="result"></p>
+</body>
+
+</html>
