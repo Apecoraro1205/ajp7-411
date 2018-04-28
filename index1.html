@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Alex Pecoraro">
+    <title>Checked Check</title>
+    <link href="../css/IT411b.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        body {
+            color: deepskyblue;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        label.error {
+            display: block;
+            color: limegreen;
+            font-size: 0.5em;
+            font-weight: italic;
+            text-align: center;
+            margin-left: 250px;
+        }
+        
+        input {
+            border: 1px solid black;
+        }
+        
+        input.error {
+            background: green;
+            border: 1px solid limegreen;
+        }
+        
+        p {
+            color: black;
+        }
+        
+        #signup {
+            background-color: aliceblue;
+            margin: 50px;
+            padding: 20px;
+            border: 10px solid black;
+        }
+        
+        #submitme {
+            background-color: black;
+            font-size: 1em;
+            color: deepskyblue;
+            border: none;
+            border-radius: 90%;
+            margin: 5px;
+            padding: 7.5px;
+        }
+        
+        #result {
+            text-align: left;
+            font-weight: normal;
+        }
+
+    </style>
+    <script src="../index1.js"></script>
+
+</head>
+<img src="../images/sftwear.png">
+
+<body>
+    <form id="signup" action="sampleactionOne.html">
+        <label for="getinput" class="label">Enter Your Name</label>
+        <input type="text" value="Please type your name" name="getinput" id="getinput"> <br/>
+        <label for="getinput1" class="label">What city do you live in?</label>
+        <input type="text" value="Please enter your city" name="getinput1" id="getinput1"> <br/>
+        <label for="getinput2" class="label">How old are you?</label>
+        <input type="text" value="Please enter your age" name="getinput2" id="getinput2"> <br/>
+
+        <!-- note the type below is submit not button.  If submit is failing to fire make sure you used submit -->
+        <input type='submit' value='Submit' name="submit" id='submitme'>
+
+    </form>
+    <p id="result"></p>
+</body>
+
+</html>
